@@ -33,21 +33,28 @@ abstract public class Animal2{
         this.name = name;
     }
 
-    void older_one_animal(){
+    void older(){ // this works my animal is one year older with this fct
 	    age++;
 	    System.out.println(" now the animal is " +name+" a " + age +" years old"); 
     }
 
-    void older_all_animal(int inc){
-	    age+=inc;
-	    System.out.println(" now the animal is " +name+" a " + age+" years old"); 
-    }
+    // void older(int inc){
+	//     age+=inc;
+	//     System.out.println(" now the animal " +name+" is " + age+" years old"); 
+    // }
 
-    void killAnimal(){
+    void kill(){
         alive=false;
     }
 
-    void affiche_animal(){
+    void display(){
+        System.out.println("my name is " +name+" number "+number+ " age "+ age);
+        if (alive)
+            System.out.println("  animal alive" );
+        else 
+            System.out.println("  animal dead" );
+        noise();
+        }
 
 	public String toString(){
         String msg="my name is " +name+" number" + " age "+ age;

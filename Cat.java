@@ -11,7 +11,7 @@
 //     }
 // }
 // }
-class Cat extends Animal {
+class Cat extends Animal2 {
     public Cat(String name) {super(name);}
     public Cat(String name,int age) {super(name,age);}
 
