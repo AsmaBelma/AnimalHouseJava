@@ -1,58 +1,61 @@
+abstract public class Animal2{
 
-abstract public class Animal2 {
-
-    private String nom;
+    private String name;
     private int age;
-    private boolean vivant;
-    static int compteur=0;
-    private int numero;
-
-    abstract public void crier ();
+    private boolean alive;
+    static int counter=0;
+    private int number;
+    abstract public void noise ();
 
     public Animal2(String chaine)
     {
-        vivant=true;
-        nom=chaine;
-        age =0;
-        compteur++;
-	    numero=compteur;
+	    alive=true;
+	    name=chaine;
+	    age =0;
+        counter++;
+	    number=counter;
     }
+
 
     public  Animal2(String chaine,int age){
-        this.age =age;
-        vivant=true;
-        nom=chaine;
-        compteur++;
-	    numero=compteur;
+	    this.age =age;
+	    alive=true;
+	    name=chaine;
+        counter++;
+	    number=counter;
     }
 
-    public String getNom() {
-        return this.nom;
+    public String getname(){
+        return this.name;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    void veillir(){
+    void older_one_animal(){
 	    age++;
-	    System.out.println(" Desormais l' animal " +nom+" a " + age +" ans"); 
-    }
-    void veillir(int inc) {
-        age+=inc;
-        System.out.println(" Desormais l' animal " +nom+" a " + age+" ans"); 
+	    System.out.println(" now the animal is " +name+" a " + age +" years old"); 
     }
 
-    void mourrir (){
-        vivant=false;
+    void older_all_animal(int inc){
+	    age+=inc;
+	    System.out.println(" now the animal is " +name+" a " + age+" years old"); 
     }
 
-    public String toString(){
-        String msg="je m'appelle " +nom+" numero" + " age "+ age;
-        if (vivant)
-            msg+="animal vivant" ;
-        else 
-            msg+="animal mort" ;
-        return msg;
+    void killAnimal(){
+        alive=false;
+    }
+
+    void affiche_animal(){
+
+	public String toString(){
+        String msg="my name is " +name+" number" + " age "+ age;
+	    if (alive)
+	        msg+="animal alive" ;
+	    else 
+	        msg+="animal dead" ;
+	return msg;
     }
 }
+
