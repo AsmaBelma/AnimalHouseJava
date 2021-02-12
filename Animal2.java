@@ -33,15 +33,15 @@ abstract public class Animal2{
         this.name = name;
     }
 
-    void older(){ // this works my animal is one year older with this fct
-	    age++;
-	    System.out.println(" now the animal is " +name+" a " + age +" years old"); 
-    }
-
-    // void older(int inc){
-	//     age+=inc;
-	//     System.out.println(" now the animal " +name+" is " + age+" years old"); 
+    // void older(){ // this works my animal is one year older with this fct
+	//     age++;
+	//     System.out.println(" now the animal is " +name+" a " + age +" years old"); 
     // }
+
+    void older(int inc = 1){
+	    age += inc;
+	    System.out.println(" now the animal " +name+" is " + age+" years old"); 
+    }
 
     void kill(){
         alive=false;
@@ -66,3 +66,4 @@ abstract public class Animal2{
     }
 }
 
+animal.older(4)

@@ -2,62 +2,123 @@ import java.io;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.*;
+
+
 
 public class Main {
 
-    public static void main (String args[])
-    {
-        final int size = 5;
-        Animal2 []array = new Animal2[size];
+    public static void main(String args[]) {
+        Vector<AnimalHouse> animalHouses = new Vector<AnimalHouse>();
         while(true) {
             print_menu();
             int option = readInt();
             switch (option) {
-                case 1 : add_animal(array);break;
-                case 2 : older_one_animal(array);break;
-                case 3 : older_all_animal(array);break;
-                case 4 : kill_animal(array);break;
-                case 5 : search_animal(array);break;
-                case 6 : printAnimal(array);break;
+                case 1 : animalhouse.addElement(createAnimalhouse());break;
+                case 2 : add(animalhouse);break;
+                case 2 : older_one_animal(animalhouse);break;
+                case 3 : older_all_animal(animalhouse);break;
+                case 4 : kill_animal(animalhouse);break;
+                case 5 : search_animal(animalhouse);break;
+                case 6 : printAnimal(animalhouse);break;
                 case 0 : System.exit(0);
                 default : 
                     System.out.println("non existant option, start again");
             }
         }
     }
+// creation animalerie
+    public static AnimalHouseVector createAnimalHouse(){
+        System.out.println("give the name of your animal house");
+        String name = readString();
+        return new AnimalHouseVector(name);
+    }
 
-    public static void older_one_animal(Animal2 array[]){
-        Animal2 animal = find(array);
+//chercher une animalerie  
+    public static AnimalHouseVector find (Vector animalhouse){
+        if (animalhouse.isEmpty()}
+        {
+            System.out.println("no existing animal house");
+        }
+        System.out.println("give the animal name");
+        String name = readString();
+        for(Enumeration e = animalhouse.element() ; e.hasMoreElement();)
+        {
+            AnimalVector courant = (AnimalHouseVector)e.nextElement(); 
+            if courant.getName().equals(name){
+                return courant;
+            }
+        System.out.println("l'animal" + name + "doesn't exist");
+        return null;        
+        }
+        
+    }
+}
+
+//ajouter un animal
+    public static void add (Vector animalhouse){
+        AnimalHouseVector courante = find (animalhouse);
+        if (courante != null){
+            courante.add_animal();
+        }         
+    }
+// vieillir 
+    public static void older(Vector animalhouse)
+        AnimalHouseVector item = find(animalhouse);
+        if (item != null ){
+            item.older_one_animal();
+        }
+    }
+
+    public static void older_all(Vector animalhouse){
+        AnimalHouseVector item = find(animalhouse))
+    }
+//affiche 
+    public static void display(Vector animalhouse){
+        if (animalhouse.isEmpty())
+        {
+            System.out.println("no animal house");
+            return; 
+        }
+        System.
+    }
+
+    public static void display( Vector animalhouse){
+        if (animalhouse)
+    }
+
+    void older_one_animal(Animal2 animalhouse[]){
+        Animal2 animal = find(animalhouse);
 	    if (animal !=null)
 	        animal.older();
     }
 
-    public static void older_all_animal(Animal2 array[])
+    public static void older_all_animal(Animal2 animalhouse[])
     {
-        if (array[0]==null){
+        if (animalhouse[0]==null){
             System.out.println("no animals in the animal house");
             return;
         }
         System.out.println("give the number of years to add to the animal age");
         int years= readInt();
-        for (int i=0;i<array.length;i++)
+        for (int i=0;i<animalhouse.length;i++)
 	    {
-		    array[i].older(years);
+		    animalhouse[i].older(years);
 	    }
 
     }
-    public static void search_animal(Animal2 array[]){
-	    Animal2 animal =find(array);
+    public static void search_animal(Animal2 animalhouse[]){
+	    Animal2 animal =find(animalhouse);
 	    if (animal !=null)
 	    animal.display();
     }
 
-    public static Animal2 find(Animal2 array[]){
+    public static Animal2 find(Animal2 animalhouse[]){
         System.out.println("Give the animal name that you're looking for");
         String name=readString();
-        for (int i=0; i<array.length;i++){
-            if (array[i].getname().equals(name))
-		        return array[i];
+        for (int i=0; i<animalhouse.length;i++){
+            if (animalhouse[i].getname().equals(name))
+		        return animalhouse[i];
 	    }
 	    System.out.println("the animal " + name+" doesn't exist");
 	    return null;
@@ -65,21 +126,21 @@ public class Main {
 
 
 
-   public static void kill_animal(Animal2 array[]){
-	Animal2 animal =find(array);
+   public static void kill_animal(Animal2 animalhouse[]){
+	Animal2 animal =find(animalhouse);
 	if (animal !=null)
 	    animal.kill();
     }
 
-    public static void printAnimal( Animal2[]array){
-        if (array[0]==null)
+    public static void printAnimal( Animal2[]animalhouse){
+        if (animalhouse[0]==null)
 	        {
 		        System.out.println("no animal in the club house ");
 		        return;
 	        }
-	    for (int i =0; i<array.length;i++)
+	    for (int i =0; i<animalhouse.length;i++)
 	    {
-	        System.out.println(array[i]);
+	        System.out.println(animalhouse[i]);
 	    }
 
     }
@@ -88,9 +149,9 @@ public class Main {
         //animal.toString(); ???
     //}
     //}
-    public static void add_animal(Animal2 array[]){
+    public static void add_animal(Animal2 animalhouse[]){
         //int MAX = 10;
-        for (int i=0; i<array.length; i++) {
+        for (int i=0; i<animalhouse.length; i++) {
             String name = readString();
             int age = readInt();
             display_choice();
@@ -105,7 +166,7 @@ public class Main {
                     i--;
                 }
             if (animal != null)
-                array[i]=animal;
+                animalhouse[i]=animal;
         }
         System.out.println("You created 10 animals");   
     }
